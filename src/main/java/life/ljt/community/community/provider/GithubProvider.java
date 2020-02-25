@@ -28,7 +28,6 @@ public class GithubProvider {
 //            String[] split=str.split("&");
 //            String tokenString =split[0];
             String token=response.body().string().split("&")[0].split("=")[1];
-            System.out.println("========" + token);
             return token;
         } catch (Exception e) {
             e.printStackTrace();
@@ -38,7 +37,6 @@ public class GithubProvider {
 
 
     public GithubUser getUser(String token) {
-        System.out.println("========"+token);
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder()
                 .url("https://api.github.com/user?access_token=" + token)
